@@ -1,0 +1,2 @@
+"use client";
+export default function Error({reset}:{error:Error&{digest?:string};reset:()=>void}){return <main className="error-box"><div className="eyebrow" style={{justifyContent:"center"}}>A SMALL DETOUR</div><h1 style={{fontFamily:"var(--font-display)",fontSize:46,fontWeight:400}}>The shelves need a moment.</h1><p>We couldn’t load the collection just now.</p><button className="button button-dark" onClick={()=>reset()}>Try again <span>→</span></button></main>;}

@@ -1,0 +1,1 @@
+export default function Loading(){return <main className="page-shell"><div className="detail-layout"><div className="skeleton" style={{height:500}}/><div><div className="skeleton" style={{height:48}}/><div className="skeleton" style={{height:180,marginTop:20}}/></div></div></main>;}
