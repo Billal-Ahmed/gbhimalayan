@@ -1,1 +1,18 @@
-export default function Loading(){return <main className="page-shell"><div className="skeleton" style={{height:80,margin:"35px auto",maxWidth:420}}/><div className="shop-layout"><div className="skeleton" style={{height:250}}/><div className="product-grid">{Array.from({length:4},(_,i)=><div className="skeleton" key={i}/>)}</div></div></main>;}
+export default function Loading() {
+  return (
+    <main className="page-shell">
+      <div
+        className="skeleton"
+        style={{ height: 80, margin: "35px auto", maxWidth: 420 }}
+      />
+      <div className="shop-layout">
+        <div className="skeleton" style={{ height: 250 }} />
+        <div className="product-grid">
+          {Array.from({ length: 4 }, (_, i) => (
+            <div className="skeleton" key={i} />
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}

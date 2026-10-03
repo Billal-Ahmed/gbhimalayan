@@ -59,7 +59,7 @@ def main() -> None:
         for image in product.get("images", []):
             urls.update(value for value in (image.get("src"), image.get("thumbnail")) if value)
 
-    local_path = {url: f"/catalog/{asset_name(url)}" for url in urls}
+    local_path = {url: f"/images/products/{asset_name(url)}" for url in urls}
     catalog = []
     category_map: dict[str, str] = {}
     for product in source:
@@ -72,8 +72,8 @@ def main() -> None:
         for image in product.get("images", []):
             src = image.get("src")
             if src:
-                main_image = local_path.get(src, f"/catalog/{asset_name(src)}")
-                thumbnail = local_path.get(image.get("thumbnail", src), f"/catalog/{asset_name(image.get('thumbnail', src))}")
+                main_image = local_path.get(src, f"/images/products/{asset_name(src)}")
+                thumbnail = local_path.get(image.get("thumbnail", src), f"/images/products/{asset_name(image.get('thumbnail', src))}")
                 main_file = ROOT / "public" / main_image.lstrip("/")
                 thumbnail_file = ROOT / "public" / thumbnail.lstrip("/")
                 if not main_file.exists() and thumbnail_file.exists():
@@ -99,7 +99,7 @@ def main() -> None:
             "shortDescription": text_content(product.get("short_description", "")),
             "weightOptions": attrs.get("weight", []) or attrs.get("size", []),
             "weight": ", ".join(attrs.get("weight", []) or attrs.get("size", [])) or "Select size",
-            "images": image_entries, "image": image_entries[0]["src"] if image_entries else "/catalog/placeholder.svg",
+            "images": image_entries, "image": image_entries[0]["src"] if image_entries else "/images/products/placeholder.svg",
             "permalink": product.get("permalink", ""), "sku": product.get("sku", ""),
         })
 
